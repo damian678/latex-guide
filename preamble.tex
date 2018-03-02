@@ -1,0 +1,140 @@
+\documentclass[12pt,a4paper,oneside]{book}
+
+% tak adaptujemy program do pisania, wyświetlania i drukowania polskich znaków
+%\usepackage[latin2]{inputenc}   % dla ISO-8859-2
+\usepackage[cp1250]{inputenc}    % dla Win-1250
+%\usepackage[MeX]{polski}        % używane są fonty PL (MeX=OT4+plmath)
+\usepackage[T1,plmath]{polski}   % używane są fonty EC; zdefiniowane polskie <=/>=
+\usepackage{graphicx} 
+\usepackage{indentfirst}         % robi wcięcie w pierwszym akapicie
+%\usepackage{showlabels}
+
+\usepackage{amsfonts} % czcionki
+\usepackage{amssymb}  % i symbole matematyczne
+\usepackage{amsmath}  % oraz parę innych przydatnych rzeczy
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+% manipulując poniższymi ustawieniami możemy zmieniać marginesy
+% uwaga: ujemne wartości są dopuszczalne
+\textheight 22.2cm           % wysokość kolumny tekstu
+\textwidth 15.3cm            % szerokość kolumny tekstu
+\topmargin 0cm               % górny margines
+\oddsidemargin 0.55cm        % lewy margines
+\evensidemargin 0cm          % lewy margines dla lewej strony
+
+%\def\baselinestretch{1.1}   % zmienia odległość między wierszami,
+\linespread{1.4}             % czyli interlinia
+
+\setlength\arraycolsep{2pt} % zmienia odległość między kolumnami tabeli
+% oraz w środowiskach \eqnarray i \eqnarray*
+
+% poniższe polecenie można wykorzystywać zamiast \cleardoublepage
+% w dokumentach dwustronnych w celu dodania pustej strony parzystej
+% (na przykład przed kolejnymi rozdziałami)
+\def\myclearlastpage{\clearpage{\pagestyle{empty}\cleardoublepage}}
+
+
+
+% poniżej znajdują się definicje środowisk typu twierdzenia
+\newcounter{cdef}[section]
+\newenvironment{definicja}{%
+	\refstepcounter{cdef}%
+	\vspace\bigskipamount\par\noindent%
+	\textbf{Definicja \thesection.\arabic{cdef}%
+		}\par\indent\it%
+}%
+{\par\medskip}
+\renewcommand{\thecdef}{\thesection.\arabic{cdef}}
+
+
+\newcounter{uwaga}[section]
+\newenvironment{rem}[1][.]{%
+	\refstepcounter{uwaga}%
+	\vspace\bigskipamount\par\noindent%
+	\textbf{Uwaga \arabic{uwaga}}\textbf{.}%
+	\if.#1\enspace\else\textbf{\ (#1)}\fi%
+	\ignorespaces \par%\indent\it%
+}{%
+	\par\medskip%
+}
+
+\numberwithin{equation}{section}
+
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+
+
+\newcounter{cthm}[section]
+\newenvironment{twi}[1][.]{%
+	\refstepcounter{cthm}%
+	\vspace\bigskipamount\par\noindent%
+	\textbf{Twierdzenie \thesection.\arabic{cthm}}%
+	\if.#1\enspace\else\textbf{\ (#1)}\fi%
+	\ignorespaces\par\indent\it%
+}{%
+\par\medskip%
+}
+\renewcommand{\thecthm}{\thesection.\arabic{cthm}}
+
+\newcounter{clem}[section]
+\newenvironment{lem}[1][.]{%
+	\refstepcounter{clem}%
+	\vspace\bigskipamount\par\noindent%
+	\textbf{Lemat \thesection.\arabic{clem}}%
+	\if.#1\enspace\else\textbf{\ (#1)}\fi%
+	\ignorespaces\par\indent\it%
+}{%
+\par\medskip%
+}
+\renewcommand{\theclem}{\thesection.\arabic{clem}}
+
+\newcounter{cwni}[section]
+\newenvironment{wni}{%
+	\refstepcounter{cwni}%
+	\vspace\bigskipamount\par\noindent%
+	\textbf{Wniosek \thesection.\arabic{cwni}%
+		}\par\indent \indent\it%
+}%
+{\par\medskip}
+\renewcommand{\thecwni}{\thesection.\arabic{cwni}}
+
+%\thechapter. dla działów
+\newcounter{cprz}[section]
+\newenvironment{prz}{%
+	\refstepcounter{cprz}%
+	\vspace\bigskipamount\par\noindent%
+	\textbf{Przykład \thesection.\arabic{cprz}%
+		}\par\indent%
+}%
+{\par\medskip}
+\renewcommand{\thecwni}{\thechapter.\thesection.\arabic{cprz}}
+
+\newcommand{\dowod}{\textbf{Dowód}}
+\newenvironment{dow}[1][.]{%
+	\vspace\medskipamount%
+	\par\noindent%
+	\dowod%
+	\if.#1\enspace\else\textbf{\ (#1).}\fi%
+	\par\indent}%
+{\par\hfill$\square$\par}
+
+\newcommand{\uzupe}{\textbf{Uzupełnienie}}
+\newenvironment{uzup}[1][.]{%
+	\vspace\medskipamount%
+	\par\noindent%
+	\uzupe%
+	\if.#1\enspace\else\textbf{\ (#1).}\fi%
+	\par\indent}%
+{\par\hfill$\square$\par}
+
+
+% poniżej zdefiniowane są różne przydatne polecenia
+
+% prostowanie nawiasów
+\newcommand{\nawias}[1]{\textnormal{(}#1\textnormal{)}}
+\def\myeqref#1{\textnormal{(\thechapter.\ref{#1})}}
+
+% #1 nad symbolem =
+\def\rowne{\,\mathop{=}\nolimits}
+\def\rownedef[#1]{\rowne\limits^{\mathrm{#1}}\,}
+
+% definicje operatorów matematycznych
+\def\conv{\mathop{\rm conv}\nolimits}
