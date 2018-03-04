@@ -1,4 +1,4 @@
 # latex-guide
-Preambuła wykorzystana w mojej pracy dyplomowej
+Preambuła wykorzystana w mojej pracy dyplomowej i przewodnik
 
-The preamble used in my diploma thesis
+The preamble used in my diploma thesis and guide
