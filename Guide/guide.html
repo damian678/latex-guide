@@ -1,0 +1,1661 @@
+<!DOCTYPE HTML>
+<html lang="pl">
+
+<head>
+<meta charset="utf-8"/>
+<title>Krótki kurs LateX-a &bull; Damian Bilski</title>
+<meta name="description" content="Kilka podstawowych komend pozwalających na swobodne korzystanie z LateX-a"/>
+<meta name="keywords" content="LateX, poradnik, kod, autor"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+
+<link rel="stylesheet" href="style.css" type="text/css"/>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	
+<script src="jquery.scrollTo.min.js"></script>
+
+<script>
+		
+		jQuery(function($)
+		{
+			//zresetuj scrolla
+			$.scrollTo(0);
+			
+			$('#link1').click(function() { $.scrollTo($('#indeksy'), 500); });
+			$('#link2').click(function() { $.scrollTo($('#ulamki'), 500); });
+			$('#link3').click(function() { $.scrollTo($('#pierwiastki'), 500); });
+			$('#link4').click(function() { $.scrollTo($('#binarne'), 500); });
+			$('#link5').click(function() { $.scrollTo($('#relacje'), 500); });
+			$('#link6').click(function() { $.scrollTo($('#znaki'), 500); });
+			$('#link7').click(function() { $.scrollTo($('#funkcje'), 500); });
+			$('#link8').click(function() { $.scrollTo($('#strzalki'), 500); });
+			$('#link9').click(function() { $.scrollTo($('#nawiasy'), 500); });
+			$('#link10').click(function() { $.scrollTo($('#male'), 500); });
+			$('#link11').click(function() { $.scrollTo($('#wielkie'), 500); });
+			$('#link12').click(function() { $.scrollTo($('#odstepy'), 500); });
+			$('#link13').click(function() { $.scrollTo($('#czcionki'), 500); });
+			$('#link14').click(function() { $.scrollTo($('#granice'), 500); });
+			$('#link15').click(function() { $.scrollTo($('#newton'), 500); });
+			$('#link16').click(function() { $.scrollTo($('#sumy'), 500); });
+			$('#link17').click(function() { $.scrollTo($('#dzielenie'), 500); });
+			$('#link18').click(function() { $.scrollTo($('#calki'), 500); });
+			$('#link19').click(function() { $.scrollTo($('#wektory'), 500); });
+			$('#link20').click(function() { $.scrollTo($('#macierze'), 500); });
+			$('#link21').click(function() { $.scrollTo($('#uklady'), 500); });
+			$('#link22').click(function() { $.scrollTo($('#tabele'), 500); });
+			$('#link23').click(function() { $.scrollTo($('#kolory'), 500); });
+			$('#link24').click(function() { $.scrollTo($('#makra'), 500); });
+			$('#link25').click(function() { $.scrollTo($('#zaczac'), 500); });
+			$('#link26').click(function() { $.scrollTo($('#struktura'), 500); });
+			$('#link27').click(function() { $.scrollTo($('#klasy'), 500); });
+			$('#link28').click(function() { $.scrollTo($('#tytuly'), 500); });
+			$('#link29').click(function() { $.scrollTo($('#odsylacze'), 500); });
+			$('#link30').click(function() { $.scrollTo($('#srodowiska'), 500); });
+			$('#link31').click(function() { $.scrollTo($('#grafika'), 500); });
+			$('#link32').click(function() { $.scrollTo($('#spisy'), 500); });
+			
+	
+			$('.scrollup').click(function() { $.scrollTo($('body'), 1000); });
+		}
+		);
+		
+		//pokaż podczas przewijania
+		$(window).scroll(function()
+		{
+			if($(this).scrollTop()>300) $('.scrollup').fadeIn();
+			else $('.scrollup').fadeOut();		
+		}
+		);
+	
+	
+	</script>
+</head>
+
+<body>
+	<div id="logo">Krótki kurs LateX-a </div>
+		<div id="container">
+			<a href="#" class="scrollup"></a>
+			<div id="spis">
+			
+			<ol>
+			<center><font size="5"><u>Spis treści</u></font></center><br/>
+			<li>
+					Najważniejsze zagadnienia
+					<ul>
+						<li><a id="link25" href="#">Jak zacząć?</a></li>
+						<li><a id="link26" href="#">Struktura pliku źródłowego</a></li>
+						<li><a id="link27" href="#">Klasy dokumentów</a></li>
+						<li><a id="link28" href="#">Tytuły, śródtytuły i punkty</a></li>
+						<li><a id="link29" href="#">Odsyłacze</a></li>
+						<li><a id="link30" href="#">Środowiska</a></li>
+						<li><a id="link31" href="#">Dołączanie grafiki w formacie</a></li>
+						<li><a id="link32" href="#">Spis treści i literatury</a></li>
+					</ul>
+				</li>
+				<li>
+					Komendy - część I
+					<ul>
+						<li><a id="link1" href="#">Indeksy </a></li>
+						<li><a id="link2" href="#">Ułamki</a></li>
+						<li><a id="link3" href="#">Pierwiastki</a></li>
+						<li><a id="link4" href="#">Operatory binarne</a></li>
+						<li><a id="link5" href="#">Relacje</a></li>
+						<li><a id="link6" href="#">Rózne znaki</a></li>
+						<li><a id="link7" href="#">Funkcje matematyczne</a></li>
+						<li><a id="link8" href="#">Strzałki</a></li>
+						<li><a id="link9" href="#">Nawiasy i ograniczniki</a></li>
+						<li><a id="link10" href="#">Małe litery alfabetu greckiego</a></li>
+						<li><a id="link11" href="#">Wielkie litery alfabetu greckiego</a></li>
+						<li><a id="link12" href="#">Odstępy i kompozycja</a></li>
+						<li><a id="link13" href="#">Czcionki</a></li>
+					</ul>
+				</li>
+				<li>
+					Komendy - część II
+					<ul>
+						<li><a id="link14" href="#">Granice</a></li>
+						<li><a id="link15" href="#">Symbol Newtona</a></li>
+						<li><a id="link16" href="#">Sumy, iloczyny</a></li>
+						<li><a id="link17" href="#">Dzielenie pisemne wielomianów</a></li>
+						<li><a id="link18" href="#">Całki</a></li>	
+						<li><a id="link19" href="#">Wektory, linie oraz inne symbole nad/pod wyrażeniami</a></li>
+						<li><a id="link20" href="#">Macierze, wyznaczniki</a></li>						
+						<li><a id="link21" href="#">Układy równań</a></li>						
+						<li><a id="link22" href="#">Tabele</a></li>						
+						<li><a id="link23" href="#">Kolory</a></li>						
+						<li><a id="link24" href="#">Makra</a></li>						
+					</ul>
+				</li>
+					
+								
+			</ol>
+		</div>
+
+		<div class="slajd">
+		
+		<!-- ######################## Rozdział 1 ######################## -->
+		<center><h1> 1. Najważniejsze zagadnienia</h1></center>
+		<h2 id="zaczac">1.1 Jak zacząć?</h2>
+			<li>Pierwszy krok to pobranie instalki MiKTeX-a.</li><br/>
+			<img  src="image/1.png" align="middle"   />&nbsp; &nbsp;
+			<a href="https://miktex.org/2.8/setup" target="_blank" title=	"Pobierz MiKTeX-a!" ><font color="orange">Pobierz</font></a>
+			<br/><br/>
+			<li>Drugi krok to pobranie i zainstalowanie edytora obsługującego LaTeX-a.</li>
+			<br/><br/>
+			<img  src="image/2.png" align="middle"   />&nbsp; &nbsp;
+			<a href="http://www.xm1math.net/texmaker/download.html" target="_blank" title=	"Pobierz TeXMAKER!" ><font color="orange">Pobierz</font></a>
+			<br/><br/>
+			<img  src="image/3.png" align="middle"   />&nbsp; &nbsp;
+			<a href="http://www.latexeditor.org/how_to_start.html" target="_blank" title=	"Pobierz LeD!" ><font color="orange">Pobierz</font></a>
+			<br/><br/>
+			<img  src="image/4.png" align="middle"   />&nbsp; &nbsp;
+			<a href="http://www.tug.org/texworks/" target="_blank" title=	"Pobierz TEXworks!" ><font color="orange">Pobierz</font></a>
+			<br/><br/>
+			<img  src="image/5.jpg" align="middle"   />&nbsp; &nbsp;
+			<a href="https://www.texstudio.org/" target="_blank" title=	"Pobierz TeXstudio!" ><font color="orange">Pobierz</font></a>
+			<br/><br/>
+		Tutaj krótko omówię początek pracy z TeXstudio. <br/>
+		Wystarczy stworzyć nowy projekt <br/>
+		Plik -> Nowy. <br/>
+		W pliku umieśćmy kod:<br/><br/>
+		<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="red" face="Verdana">\documentclass</font>{article}<br/>
+				<font size="2" color="blue" face="Verdana">\begin</font>{document}<br/>
+					&nbsp; Hello world <br/>
+				<font size="2" color="blue" face="Verdana">\end</font>{document}</font>
+			</div><br/><br/>
+			Następnie zapisujemy plik i kompilujemy (skrót klawiszy F6 lub przycisk Kompiluj).
+			<br/><br/>
+			<img  src="image/7.png" align="middle"   />
+			<br/><br/>
+			Powinien ukazać się napis:
+			<br/><br/>
+			<img  src="image/8.png" align="middle"   />
+			<br/><br/>
+			Następnie musimy stworzyć plik PDF (skrót klawiszy F7 lub przycisk Podejrzyj).
+			<br/><br/>
+			<img  src="image/9.png" align="middle"   />
+			<br/><br/>
+			Teraz zostanie stworzony plik .pdf:
+			<br/><br/>
+			<img  src="image/10.png" align="middle"   />
+			
+		<h2 id="struktura">1.2 Struktura pliku źródłowego</h2>
+			LaTex oczekuje, że plik źródłowy posiada określoną strukturę. W szczególności, każdy plik źródłowy składa się z dwóch części: preambuły oraz części głównej. Preambuła powinna się rozpoczynać od instrukcji:<br/><br/>
+
+			<font  color="red" face="Verdana">\documentclass</font>{...}<br/><br/>
+
+			Polecenie to określa typ tworzonego dokumentu. Po nim można umieścić instrukcje dotyczące stylu całego dokumentu oraz dołączyć pakiety poszerzające możliwości LaTex-a. Pakiety dołącza się za pomocą polecenia:<br/><br/>
+
+			<font  color="red" face="Verdana">\usepackage</font>{...}<br/><br/>
+
+			Część główna dokumentu zaczyna się od instrukcji<br/><br/>
+
+			<font  color="blue" >\begin</font>{document}<br/><br/>
+
+			a kończy poleceniem<br/><br/>
+			<font  color="blue" face="Verdana">\end</font>{document}<br/><br/>
+
+			Tekst znajdujący się za tym poleceniem jest przez LaTex-a ignorowany.<br/><br/>
+
+			Poniżej przedstawię prosty przykład artykułu który wykorzystuje powyższe polecenia. Będzie to przykład w którym już będziemy mogli używać polskich znaków.<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="3" color="red" face="Verdana">\documentclass</font>{article}<br/>
+				<font size="3" color="red" face="Verdana">\usepackage[MeX]</font>{polski}<br/>
+				<font size="3" color="red" face="Verdana">\usepackage[cp1250]</font>{inputenc}<br/>
+				<font size="3" color="blue" face="Verdana">\begin</font>{document}<br/>
+					&nbsp; Małe jest piękne. <br/>
+				<font size="3" color="blue" face="Verdana">\end</font>{document}</font></div>
+			<br/><br/>
+			<img  src="image/11.png" align="middle" border="2"   />
+			<br/><br/>
+			Poniżej bardziej rozbudowana struktura artykułu:<br/><br/>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="3" color="red" face="Verdana">\documentclass[a4paper,11pt]</font>{article}<br/>
+				<font size="3" color="red" face="Verdana">\usepackage[MeX]</font>{polski}<br/>
+				<font size="3" color="red" face="Verdana">\usepackage[cp1250]</font>{inputenc}<br/>
+				<font size="3" color="red" face="Verdana">\usepackage</font>{latexsym}<br/>
+				<font size="3" color="red" face="Verdana">\author</font>{H.~Partl}<br/>
+				<font size="3" color="red" face="Verdana">\title</font>{Szkic artykułu}<br/>
+				<font size="3" color="red" face="Verdana">\frenchspacing</font><br/>
+				<font size="3" color="blue" face="Verdana">\begin</font>{document}<br/>
+				<font size="3" color="red" face="Verdana">\maketitle</font><br/>
+				<font size="3" color="red" face="Verdana">\tableofcontents</font><br/>
+				<font size="3" color="blue" face="Verdana">\section</font>{Pierwszy rozdział}<br/>
+					&nbsp; Treść pierwszego rozdziału. <br/>
+					<font size="3" color="blue" face="Verdana">\section</font>{Drugi rozdział}<br/>
+					&nbsp; Treść drugiego rozdziału. <br/>
+				<font size="3" color="blue" face="Verdana">\end</font>{document}</font></div>
+			<br/><br/>
+			Oto efekt:
+			<br/><br/>
+			<img  src="image/12.png" align="middle" border="2"   />
+			
+			
+			<h2 id="klasy">1.3 Klasy dokumentów</h2>
+			LaTex musi wiedzieć do jakiej klasy (typu) należny przetwarzany dokument. Jest to określone w instrukcji \documentclass:<br/><br/>
+
+			<font color="red">\documentclass</font>[opcje]{klasa}<br/><br/>
+
+			gdzie <i>klasa</i> oznacza typ dokumentu.<br/><br/>
+			<br/>
+			<fieldset>
+			<center>Klasy dokumentów:</center><br/>
+			<li><b>article</b>	-	artykuły, krótkie opracowania . . .</li><br/>
+			<li><b>report</b>-	dłuższe opracowania, dysertacje magisterskie i doktorskie . . .</li><br/>
+			<li><b>book</b>	-	książki.</li><br/>
+			<li><b>slides</b>	-	przezrocza.</li><br/>
+			<li><b>letter</b>	-	listy.</li>
+			</fieldset>
+			<br/>
+			Opcje umożliwiają modyfikowanie klas. Poszczególne opcje rozdziela się przecinkami.
+			<br/><br/>
+			<fieldset>
+			<center>Ważniejsze opcje klas dokumentów:</center><br/>
+			<li><b>10pt, 11pt, 12pt</b>	-	Ustalenie stopnia pisma dla tekstu zasadniczego dokumentu. Domyślna wartością jest 10 punktów.</li>
+			<li><b>a4paper, letterpaper,...</b>	-	Ustalenie wymiarów papieru. Wartością domyślną jest letterpaper. Dopuszczalne wartości to: a5paper, b5paper, executivepaper, legalpaper.</li>
+			<li><b>fleqn</b>	-	Składanie wyeksponowanych wzorów matematycznych od lewego marginesu zamiast domyślnego centrowania.</li>
+			<li><b>leqno</b>	-	Umieszczanie numerów wzorów matematycznych na lewym marginesie zamiast domyślnie na prawym.</li>
+			<li><b>titlepage, notitlepage</b>	-	Pierwsza powoduje, ze LaTex składa tytuł (instrukcja maketitle) oraz streszczenie (instrukcja abstract) na oddzielnej stronie, druga rozpoczyna skład tekstu na stronie tytułowej. W klasie article domyślnie nie są składane na oddzielnych stronach; w stylu report i book są.</li>
+			<li><b>twocolumn</b>	-	Skład dwukolumnowy.</li>
+			<li><b>oneside, twoside</b>	-	Druk na jednej lub na dwóch stronach kartki papieru. W klasach article i report domyślną opcją jest oneside, natomiast w klasie book – twoside. Włączenie opcji oneside powoduje przy okazji, ze LaTex nie wyrównuje wysokości kolejnych stron, dopuszczając pewną ich zmienność.</li>
+			<li><b>openright, openany</b>	-	Wybranie pierwszej opcji powoduje, że tytuły rozdziałów będą umieszczane na stronach nieparzystych. W klasie article opcja nie ma znaczenia ponieważ w tej klasie nie jest zdefiniowane pojęcie rozdziału. W klasie report domyślną wartością jest openany, w klasie book – openright.</li>
+			</fieldset>	
+			
+			<h2 id="tytuly">1.4 Tytuły, śródtytuły i punkty.</h2>
+			
+			Podzielenie dokumentu na rozdziały, podrozdziały, punkty itd. pomaga czytelnikom lepiej orientować się w tekście. Do dzielenia dokumentu na hierarchiczne części służą odpowiednie polecenia LaTeX-owe. Do autora należy wykorzystanie tych poleceń w odpowiednim porządku.<br/><br/>
+
+			W klasie article mamy do dyspozycji następujące instrukcje podziału hierarchicznego:<br/><br/>
+
+			<font color="red">\section</font>{...} <br/>
+			<font color="red">\paragraph</font>{...} <br/>
+			<font color="red">\subsection</font>{...} <br/>
+			<font color="red">\subparagraph</font>{...} <br/>
+			<font color="red">\subsubsection</font>{...}<br/> 
+			<font color="red">\appendix</font><br/><br/>
+
+			W klasie report i book można użyć dwóch dodatkowych instrukcji:<br/><br/>
+
+			<font color="red">\part</font>{...} <br/> 
+			<font color="red">\chapter</font>{...}<br/><br/> 
+
+			Dwie z wymienionych instrukcji działają nieco inaczej niż pozostałe:<br/><br/> 
+
+			Instrukcja \part nie ma wpływu na numeracje rozdziałów.<br/> 
+			Instrukcja \appendix nie posiada argumentów. Jest to deklaracja zmieniająca z cyfr na litery sposób numerowania rozdziałów (w klasach book i report) lub punktów (w klasie article).<br/> 
+			Argumentu instrukcji podziału dokumentu LaTeX używa do przygotowania spisu treści. Instrukcja:<br/><br/> 
+
+			<font color="red">\tableofcontents</font><br/><br/> 
+
+			wstawia spis treści w miejscu, w którym jej użyjemy. Aby w spisie treści otrzymać prawidłowe numery stron, dokument trzeba skompilować dwukrotnie.<br/><br/> 
+
+			Wymienione wyżej instrukcje podziału hierarchicznego posiadają także wersje „z gwiazdką”. Nazwa instrukcji w wersji „z gwiazdką” składa się z „normalnej” nazwy, po której występuje znak „*”. W wyniku działania takiej instrukcji, tytuł rozdziału lub podrozdziału zostanie umieszczony w dokumencie, ale nie w spisie treści; tytuł nie jest tez objęty numeracja.<br/><br/> 
+
+			Przykładowo wersja „z gwiazdką” instrukcji <br/><br/> 
+
+			<font color="red">\section</font>{Help}<br/><br/> 
+
+			jest <br/><br/> 
+
+			<font color="red">\section*</font>{Help}.<br/><br/> 
+
+			Najczęściej hasła w spisie treści są identyczne z odpowiadającymi im tytułami rozdziałów czy punktów. Czasami jednak nie jest to pożądane, ponieważ na przykład tekst hasła jest zbyt długi. W takich wypadkach hasło do spisu treści można podać jako opcjonalny argument instrukcji podziału hierarchicznego, np:<br/><br/> 
+
+			<font color="red">\chapter</font>[Krótki i~ekscytujący rozdział]{To jest bardzo długi i~wyjątkowo nudny rozdział}<br/><br/> 
+
+			W wyniku wykonania tej instrukcji w spisie treści pojawi się „Krótki i ekscytujący rozdział”, natomiast w tytule rozdziału „To jest bardzo długi i wyjątkowo nudny rozdział”.<br/><br/> 
+
+			LaTeX składa stronę tytułowe w wyniku wykonania instrukcji:<br/><br/> 
+
+			<font color="red">\maketitle</font><br/><br/> 
+
+			która, powinna być umieszczona po \begin{document}.<br/><br/> 
+
+			Zawartość strony tytułowej ustalają polecenia:<br/><br/> 
+
+			<font color="red">\title</font>{...}<br/><br/> 
+
+			<font color="red">\author</font>{...}<br/><br/> 
+
+			<font color="red">\date</font>{...}<br/><br/> 
+
+			Należy je umieścić w preambule. Jeżeli dokument ma kilku autorów, to ich nazwiska i imiona rozdzielamy instrukcja \and.
+			
+			
+			<h2 id="odsylacze">1.5 Odsyłacze</h2>
+			Książki, raporty i artykuły zawierają często odniesienia do rysunków, tabel i innych fragmentów tekstu. Do wstawiania odsyłaczy LaTeX udostępnia następujące trzy instrukcje:<br/><br/> 
+
+			<font color="red">\label</font>{etykieta}<br/><br/> 
+
+			<font color="red">\ref</font>{etykieta}<br/><br/> 
+
+			<font color="red">\pageref</font>{etykieta}<br/><br/> 
+
+			Argument etykieta jest ciągiem liter, cyfr lub znaków interpunkcyjnych. Nazwy etykiet ustala sam użytkownik. LaTeX zamienia \ref{etykieta} na numer tego rozdziału, punktu, rysunku, tabeli czy tez równania matematycznego, bezpośrednio za którym umieszczona została instrukcja \label zawierająca identyczna etykietę. Instrukcja \pageref{etykieta} działa identycznie jak \ref, z tym że wstawia numer strony, na której znajduje się element oznaczony etykietą.<br/><br/> 
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="3" color="red" face="Verdana">\documentclass[a4paper,11pt]</font>{article}<br/>
+				<font size="3" color="red" face="Verdana">\usepackage[MeX]</font>{polski}<br/>
+				<font size="3" color="red" face="Verdana">\usepackage[cp1250]</font>{inputenc}<br/>
+				<font size="3" color="red" face="Verdana">\usepackage</font>{latexsym}<br/>
+				<font size="3" color="red" face="Verdana">\newtheorem</font>{theorem}{Twierdzenie}<br/>
+				<font size="3" color="red" face="Verdana">\frenchspacing</font><br/>
+				<font size="3" color="blue" face="Verdana">\begin</font>{document}<br/>
+				<font size="3" color="blue" face="Verdana">\begin</font>{theorem}<br/>
+				<font size="3" color="blue" face="Verdana">\label</font>{twr:1}<br/>
+					&nbsp; Zawartość pierwszego twierdzenia. <br/>
+				<font size="3" color="blue" face="Verdana">\end</font>{theorem}</font><br/>
+					&nbsp; Twierdzenie \ref{twr:1} jest ważne. <br/>
+				<font size="3" color="blue" face="Verdana">\end</font>{document}</font></div>
+			<br/><br/>
+			<img  src="image/124.jpg" align="middle" border="2"   />
+			<br/><br/>
+			
+			<h2 id="srodowiska">1.6 Środowiska</h2>
+			Wiele instrukcji to środowiska, mające postać:<br/><br/>
+
+			<font size="3" color="blue" face="Verdana">\begin</font>{nazwa}<br/><br/>
+
+			<font size="3" color="blue" face="Verdana">\end</font>{nazwa}<br/><br/>
+
+			gdzie nazwa jest nazwa środowiska. Środowiska można zagnieżdżać jedne w drugich:<br/><br/>
+
+			<font size="3" color="blue" face="Verdana">\begin</font>{aaa}<br/>
+			 &nbsp; ...<br/>
+			  &nbsp;&nbsp;<font size="3" color="blue" face="Verdana">\begin</font>{bbb}<br/>
+				&nbsp;&nbsp;&nbsp;...<br/>
+			  &nbsp;&nbsp;<font size="3" color="blue" face="Verdana">\end</font>{bbb}<br/>
+			 &nbsp; ...<br/>
+			<font size="3" color="blue" face="Verdana">\end</font>{aaa}<br/><br/>
+
+			Niedopuszczalnie jest natomiast „przeplatanie” środowisk:<br/><br/>
+
+			<font size="3" color="blue" face="Verdana">\begin</font>{aaa}<br/>
+			 &nbsp; ...<br/>
+			 &nbsp;&nbsp; <font size="3" color="blue" face="Verdana">\begin</font>{bbb}<br/>
+			&nbsp;&nbsp;&nbsp;	...<br/>
+			 &nbsp;&nbsp; <font size="3" color="blue" face="Verdana">\end</font>{aaa}<br/>
+			 &nbsp; ...<br/>
+			<font size="3" color="blue" face="Verdana">\end</font>{bbb}<br/><br/>
+
+			Wiele poleceń można zapisać w formie „środowiskowej”. W takich wypadkach nazwa polecenia (bez w tył-ciacha) jest nazwa środowiska.<br/><br/>
+
+			Przykładowo zamiast polecenia \em, które służy do włączenia wyróżnionego kroju pisma, możemy wykorzystać środowisko <font size="4">\begin{em}...\end{em}</font>.
+			
+			
+			<h2 id="grafika">1.7 Dołączanie grafiki w formacie</h2>
+			Na początku dodaj do preambuły pakiet graphicx<br/><br/>
+
+			<font size="3" color="red" face="Verdana">\usepackage</font>{graphicx}<br/><br/>
+
+			Jeśli kompilujesz dokument bezpośrednio przez pdflatex to zdjęcia mogą być w formatach PNG, JPG, EPS, PDF. Grafikę najlepiej umieścić w środowisko figure. My umieścimy plik graficzny z naszym logiem zapisany jako k.png.<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="3" color="red" face="Verdana">\documentclass[a4paper,11pt]</font>{article}<br/>
+				<font size="3" color="red" face="Verdana">\usepackage</font>{polski}<br/>
+				<font size="3" color="red" face="Verdana">\usepackage[cp1250]</font>{inputenc}<br/>
+				<font size="3" color="red" face="Verdana">\usepackage</font>{graphicx}<br/>
+				<font size="3" color="blue" face="Verdana">\begin</font>{document}<br/><br/>
+				<font size="3" color="blue" face="Verdana">\begin</font>{figure}<br/>
+				<font size="3" color="red" face="Verdana">\centering</font><br/>
+				<font size="3" color="red" face="Verdana">\includegraphics</font>[width=3cm]k<br/>
+				<font size="3" color="red" face="Verdana">\caption</font>{Tu umieszczasz opis}<br/>
+				<font size="3" color="blue" face="Verdana">\label</font>{fig:obrazek k}<br/>
+				<font size="3" color="blue" face="Verdana">\end</font>{figure}</font><br/><br/>
+				<font size="3" color="blue" face="Verdana">\end</font>{document}</font></div>
+			<br/><br/>
+			<center><img  src="image/14.png" align="middle" border="2"   /></center>
+			<br/><br/>
+			Oprócz argumentu <font size="4" face="Verdana">width</font>, można zadeklarować kąt o jaki obrazek ma być obrócony.
+			<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="3" color="red" face="Verdana">\documentclass[a4paper,11pt]</font>{article}<br/>
+				<font size="3" color="red" face="Verdana">\usepackage</font>{polski}<br/>
+				<font size="3" color="red" face="Verdana">\usepackage[cp1250]</font>{inputenc}<br/>
+				<font size="3" color="red" face="Verdana">\usepackage</font>{graphicx}<br/>
+				<font size="3" color="blue" face="Verdana">\begin</font>{document}<br/><br/>
+				<font size="3" color="blue" face="Verdana">\begin</font>{figure}<br/>
+				<font size="3" color="red" face="Verdana">\centering</font><br/>
+				<font size="3" color="red" face="Verdana">\includegraphics</font>[width=3cm, angle=25]k<br/>
+				<font size="3" color="red" face="Verdana">\caption</font>{Tu umieszczasz opis}<br/>
+				<font size="3" color="blue" face="Verdana">\label</font>{fig:obrazek k}<br/>
+				<font size="3" color="blue" face="Verdana">\end</font>{figure}</font><br/><br/>
+				<font size="3" color="blue" face="Verdana">\end</font>{document}</font></div>
+			<br/><br/>
+			<center><img  src="image/15.png" align="middle" border="2"   /></center>
+			<br/><br/>
+			Opis można również umieścić z boku obrazka. Preambuła musi zawierać:<br/><br/>
+
+			<font size="3" color="red" face="Verdana">\usepackage</font>{sidecap}<br/><br/>
+
+			I użyć środowiska SCfigure.<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="3" color="red" face="Verdana">\documentclass[a4paper,11pt]</font>{article}<br/>
+				<font size="3" color="red" face="Verdana">\usepackage</font>{polski}<br/>
+				<font size="3" color="red" face="Verdana">\usepackage[cp1250]</font>{inputenc}<br/>
+				<font size="3" color="red" face="Verdana">\usepackage</font>{graphicx}<br/>
+				<font size="3" color="red" face="Verdana">\usepackage</font>{sidecap}<br/>
+				<font size="3" color="blue" face="Verdana">\begin</font>{document}<br/><br/>
+				<font size="3" color="blue" face="Verdana">\begin</font>{SCfigure}<br/>
+				<font size="3" color="red" face="Verdana">\centering</font><br/>
+				<font size="3" color="red" face="Verdana">\includegraphics</font>[width=0.5 \textwidth]k<br/>
+				<font size="3" color="red" face="Verdana">\caption</font>{Opis z boku obrazka.}<br/>
+				<font size="3" color="blue" face="Verdana">\label</font>{fig:obrazek k}<br/>
+				<font size="3" color="blue" face="Verdana">\end</font>{SCfigure}</font><br/><br/>
+				<font size="3" color="blue" face="Verdana">\end</font>{document}</font></div>
+			<br/><br/>
+			<center><img  src="image/155.png" align="middle" border="2"   /></center>
+			<br/><br/>
+			Obrazek może być również otoczony tekstem. Preambuła musi zawierać:<br/><br/>
+			<font size="3" color="red" face="Verdana">\usepackage</font>{wrapfig}<br/><br/>
+
+			I użyć środowiska wrapfigure.<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="3" color="red" face="Verdana">\documentclass[a4paper,11pt]</font>{article}<br/>
+				<font size="3" color="red" face="Verdana">\usepackage</font>{polski}<br/>
+				<font size="3" color="red" face="Verdana">\usepackage[cp1250]</font>{inputenc}<br/>
+				<font size="3" color="red" face="Verdana">\usepackage</font>{sidecap}<br/>
+				<font size="3" color="red" face="Verdana">\usepackage</font>{wrapfig}<br/><br/>
+				<font size="3" color="blue" face="Verdana">\begin</font>{document}<br/><br/>...<br/>
+				<font size="3" color="blue" face="Verdana">\begin</font>{wrapfigure}{r}{0.5\textwidth}<br/>
+				<font size="3" color="blue" face="Verdana">\begin</font>{center}<br/>
+				<font size="3" color="red" face="Verdana">\vspace</font>{-20pt}<br/>
+				<font size="3" color="red" face="Verdana">\includegraphics</font>[width=0.48 \textwidth]k<br/>
+				<font size="3" color="blue" face="Verdana">\end</font>{center}</font><br/>
+				<font size="3" color="red" face="Verdana">\vspace</font>{-20pt}<br/>
+				<font size="3" color="red" face="Verdana">\caption</font>{A gull}<br/>
+				<font size="3" color="red" face="Verdana">\vspace</font>{-10pt}<br/>
+				<font size="3" color="blue" face="Verdana">\end</font>{wrapfigure}<br/><br/>...<br/>
+				<font size="3" color="blue" face="Verdana">\end</font>{document}</font></div>
+			<br/><br/>
+			<center><img  src="image/235.png" align="middle" border="2"   /></center>
+			<br/><br/>
+			Obrazki mogą być ustawione obok siebie. Preambuła musi zawierać:<br/><br/>
+			<font size="3" color="red" face="Verdana">\usepackage</font>{subfig}<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="3" color="red" face="Verdana">\documentclass[a4paper,11pt]</font>{article}<br/>
+				<font size="3" color="red" face="Verdana">\usepackage</font>{polski}<br/>
+				<font size="3" color="red" face="Verdana">\usepackage[cp1250]</font>{inputenc}<br/>
+				<font size="3" color="red" face="Verdana">\usepackage</font>{sidecap}<br/>
+				<font size="3" color="red" face="Verdana">\usepackage</font>{wrapfig}<br/><br/>
+				<font size="3" color="red" face="Verdana">\usepackage</font>{subfig}<br/><br/>
+				<font size="3" color="blue" face="Verdana">\begin</font>{document}<br/><br/>
+				<font size="3" color="blue" face="Verdana">\begin</font>{figure}<br/>
+				<font size="3" color="red" face="Verdana">\subfloat</font>[obraz 1]{\label{odnosnik}<br/>
+				<font size="3" color="red" face="Verdana">\includegraphics</font>[width=0.3\textwidth]{k}}<br/>
+				<font size="3" color="red" face="Verdana">\quad</font><br/>
+				<font size="3" color="red" face="Verdana">\subfloat</font>[obraz 2]{\label{odnosnik}<br/>
+				<font size="3" color="red" face="Verdana">\includegraphics</font>[width=0.3\textwidth]{k}}<br/>
+				<font size="3" color="red" face="Verdana">\quad</font><br/>
+				<font size="3" color="red" face="Verdana">\subfloat</font>[obraz 3]{\label{odnosnik}<br/>
+				<font size="3" color="red" face="Verdana">\includegraphics</font>[width=0.3\textwidth]{k}}<br/>
+				<font size="3" color="red" face="Verdana">\caption</font>{Obrazy obok siebie}<br/>
+				<font size="3" color="red" face="Verdana">\label</font>{fig:animals}<br/>
+				<font size="3" color="blue" face="Verdana">\end</font>{figure}</font><br/><br/>
+				<font size="3" color="blue" face="Verdana">\end</font>{document}</font></div>
+			<br/><br/>
+			<center><img  src="image/111.png" align="middle" border="2"   /></center>
+			
+			
+			
+			
+			<h2 id="spisy">1.8 Spis treści i literatury (bibliografia)</h2>
+			Instrukcja:<br/><br/>
+
+			<font size="3" color="red" face="Verdana">\tableofcontents</font><br/><br/>
+
+			wstawia spis treści w miejscu, w którym jej użyjemy. Aby w spisie treści otrzymać prawidłowe numery stron, dokument trzeba skompilować dwukrotnie.<br/><br/>
+
+			Do przygotowania spisu literatury używamy środowiska thebibliography. Każda pozycja w tym spisie rozpoczyna się poleceniem:<br/><br/>
+
+			<font size="3" color="red" face="Verdana">\bibitem</font>{etykieta}<br/><br/>
+
+			Etykietą posługujemy się do cytowania oznaczonej nią pozycji w dokumencie:<br/><br/>
+
+			<font size="3" color="red" face="Verdana">\cite</font>{etykieta}<br/><br/>
+
+			Numerowanie pozycji literatur-owych jest automatyczne (polecenia \bibitem i \cite działają podobnie jak opisane już instrukcje \label i \ref). Środowisko thebibliography ma jeden parametr, który powinien zawierać tekst równy szerokości (lub szerszy) od najszerszej etykiety ze spisu. W przykładzie poniżej „99” oznacza, ze numery pozycji w spisie będą co najwyżej dwucyfrowe.<br/><br/>
+			
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="3" color="red" face="Verdana">\documentclass[a4paper,11pt]</font>{article}<br/>
+				<font size="3" color="red" face="Verdana">\usepackage</font>{polski}<br/>
+				<font size="3" color="red" face="Verdana">\usepackage[cp1250]</font>{inputenc}<br/><br/>
+				<font size="3" color="blue" face="Verdana">\begin</font>{document}<br/><br/>
+				Partl~<font size="3" color="blue" face="Verdana">\cite</font>{pa} przedstawi<font size="3" color="blue" face="Verdana">\l \ldots</font><br/>
+				<font size="3" color="blue" face="Verdana">\begin</font>{thebibliography}{99}<br/>
+				<font size="3" color="red" face="Verdana">\bibitem</font>{pa} H.~Partl:<br/>
+				<font size="3" color="red" face="Verdana">\emph</font>{German \TeX},<br/>
+				TUGboat Vol.~9,, No.~1 ('88)<br/>
+				<font size="3" color="blue" face="Verdana">\end</font>{thebibliography}<br/><br/>
+				<font size="3" color="blue" face="Verdana">\end</font>{document}</div>
+				<br/><br/>
+			<center><img  src="image/73.png" align="middle" border="2"   /></center>
+			<br/><br/>
+			
+			
+			
+			
+			<!-- ######################## Rozdział 2 ######################## -->
+			
+			
+		<center><h1> 2. Komendy - część I</h1></center>
+		<h2 id="indeksy">2.1 Indeksy</h2>
+		
+		<li>Indeks górny: <img  src="image/da793f82227a193582db78488bd082fa.png"   /></li>
+		<br />
+		<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]a^{m}[/tex]</font>
+			</div>	
+			
+			</br>
+		<li>Indeks dolny: <img  src="image/9ded7825070b255e7bc092cdc2c8e98a.png"    /></li>
+		<br />
+		<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]a_{m}[/tex]</font>
+			</div>	
+			
+			</br>
+		<li>Istnieje możliwość połączenia indeksu górnego z indeksem dolnym. Kolejność indeksów nie odgrywa roli. Przykład: <img  src="image/11c2bba5920282dbd035fe07e6844c8f.png"    /></li>
+		<br />
+		<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]a^{m}_{n}[/tex][/tex]</font>
+			</div>	
+
+			
+			<h2 id="ulamki">2.2 Ułamki</h2>
+		
+		<li> <img  src="image/80a4b2bccd40e6aff7f6b25667134e28.png" align="middle"   /></li>
+		<br />
+		<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\frac{licznik}{mianownik}[/tex]</font>
+			</div>	
+			
+			<h2 id="pierwiastki">2.3 Pierwiastki</h2>
+		
+		<li> <img  src="image/66b371d239e1d76b063ee2b92dea735d.png"   /></li>
+		<br />
+		<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\sqrt{2x}[/tex]</font>
+			</div>	
+			
+			</br>
+		<li> <img  src="image/5a2b3d4c1ddd434a521eaff71c57ae3d.png"    /></li>
+		<br />
+		<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\sqrt[n]{2x}[/tex]</font>
+			</div>
+			
+			<h2 id="binarne">2.4 Operatory binarne</h2>
+		
+		<li>Działania dodawania jak i odejmowania są definiowane w naturalny sposób. Przykład: <img  src="image/4c5f2e2140445d0c4bc209648eb69a94.png"   /></li>
+		<br />
+		<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]a+b-c=0[/tex]</font>
+			</div>	
+			
+			</br>
+		<li>Pozostałe operatory: </li>
+		<br />
+		<center><img src="image/54060771bb1c7977e37ff4c51a5ce5cd.png"    /></center>
+		<br /><br />
+		<li>Przykłady:  </li>
+		
+		<ul type="circle">
+		<li><img  width="70px" height="20px" src="image/cbc9133789d75ca073ac4aeec8f03b01.png" align="top"   /></li>
+		<br />
+		<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]x\cdot y=0[/tex]</font>
+			</div>
+			
+			<br />
+		<li><img  src="image/b57893b9e841bb6529c3aa9af7eec83a.png"    /></li>
+		<br />
+		<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]A\cap B=B\cap A[/tex]</font>
+			</div>
+			
+			<br />
+		<li><img  src="image/8181663219d65ee844040a43a1618f59.png" align="middle"   /></li>
+		<br />
+		<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex][tex]\bigwedge\limits_{x\in R} e^{x}>0[/tex]</font>
+			</ul>
+			
+			
+			<h2 id="relacje">2.5 Relacje</h2>
+		
+		<center> <img  src="image/84a8671c5c939902309342c359b0ccb1.png"   /></center>
+		Przykłady:
+			<ul type="circle">
+		<li><img  height="20px" src="image/d0db6dfa90ecaf96d1e9e949e975ea2a.png" align="top"   /></li>
+		<br />
+		<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]x\parallel y[/tex]</font>
+			</div>
+			
+			<br />
+		<li><img  src="image/9a01b32a1780421b71680763e0997033.png"    /></li>
+		<br />
+		<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]A\sim B[/tex]</font>
+			</div>
+			</ul>
+			
+			
+			<h2 id="znaki">2.6 Różne znaki</h2>
+		
+		<center> <img  src="image/8599c156f61e47447f63741037508444.png"   /></center>
+		Przykłady:
+			<ul type="circle">
+		<li><img  height="20px" src="image/fd10ca5c0f1e424b1a28ae71f7c7b9db.png" align="top"   /></li>
+		<br />
+		<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\forall x\in R \quad x^{2}\geqslant 0[/tex][/tex]</font>
+			</div>
+			
+			<br />
+		<li><img  src="image/9b88a70132a734ec4f42355ddb884b33.png" align="middle"    /></li>
+		<br />
+		<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]z=a+bi[/tex] , to [tex]\Re (z)=a, \Im (z)=b, \ \bar{z}=a-ib[/tex]</font>
+			</div>
+			</ul>
+			
+			
+			<h2 id="funkcje">2.7 Funkcje matematyczne</h2>
+		
+		<center> <img  src="image/b336203fa7877971759e2a9aec797a95.png"   /></center>
+		Przykłady:
+			<ul type="circle">
+		<li><img   src="image/ae7f0a0ff942ee96d3db275a3cdf38be.png"    /></li>
+		<br />
+		<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\sin 2\pi=0[/tex]</font>
+			</div>
+			
+			<br />
+		<li><img  src="image/685a60c8d3d2c4385fc4a87507d1831e.png" align="middle"    /></li>
+		<br />
+		<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\ln (e)=1[/tex]</font>
+			</div>
+			</br>
+			<li>Przystawanie modulo: <img  src="image/6b61abafd681a80e2e18687c038ee315.png"    /></li>
+			<br />
+		<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]a\equiv b \pmod{11} [/tex]</font>
+			</div>
+			
+			<br />
+		<li><img  src="image/c0ee83d9c33632271e617d35b09111ee.png" align="middle"    /></li>
+		<br />
+		<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]a\equiv_{11} b[/tex]</font>
+			</div>
+			</ul>
+			
+			
+			
+			<h2 id="strzalki">2.8 Strzałki</h2>
+		
+		<center> <img  src="image/d45dd4d14472fc665a9bed44fe6a094d.png"   /></center>
+		</br>
+		Napis nad strzałką:
+			<ul type="circle">
+		<li><img   src="image/51db06a63a44356597c985e9370a66f3.png" align="top"   /></li>
+		<br />
+		<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]f(x) \xrightarrow{T_{[1,5]}} g(x)[/tex]</font>
+			</div>
+			
+			<br />
+		<li><img  src="image/e629a42bae8ceb58c0aa286f414cf78a.png"    /></li>
+		<br />
+		<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]X \xleftarrow{temp} Y[/tex]</font>
+			</div>
+			</ul>
+			
+			
+			<h2 id="nawiasy">2.9 Nawiasty i ograniczniki</h2>
+		
+		<li><img   src="image/9b2b0c0c82a57f3dd0f06e83cc9844cb.png" align="top"   /></li>
+		<br />
+		<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex](a+b)^{2}=a^{2}+2ab+b^{2}[/tex]</font>
+			</div>
+			
+			<br />
+		<li><img  src="image/8290bddba5acf9822dcbf61f4ac67d1b.png"    /></li>
+		<br />
+		<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]x\in [a,b][/tex]</font>
+			</div>
+			</ul>
+			<br />
+		<li><img  src="image/258ab9ba5707cef426734408c2fa2d7b.png"    /></li>
+		<br />
+		<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]A=\{ x\in R:\quad x>0\}[/tex]</font>
+			</div>
+			</br>
+		<li>Dalsze przykłady:</li>
+		</br>
+		<center> <img  src="image/62c92a995122b56aa63fa6ee04aa8f0a.png"   /></center>
+		<h2>Skalowanie nawiasów</h2>
+		Aby nawiasy dopasowywały swoją wielkość do treści, którą otaczają, należy poprzedzić je odpowiednio przez \left lub \right </br></br>
+		Przykłady:
+		</br>
+		<li><img   src="image/9eda6485825ce96db5c8837666f6304c.png" align="top"   /></li>
+		<br />
+		<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">\left\lfloor \frac{1}{x} \right\rfloor</font>
+			</div>
+			
+			<br />
+		<li><img  src="image/ab5e1d465a0097f26bcae7dee589735d.png" align="middle"    /></li>
+		<br />
+		<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">\left\langle -1\frac{1}{2};5 \right\rangle</font>
+			</div>
+			</ul>
+			<br />
+		<li><img  src="image/b1f076f1395d53f25551770d180c317e.png"  align="middle"  /></li>
+		<br />
+		<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">\left\{ 1,\frac{1}{2},\frac{1}{3} \right\}</font>
+			</div>
+			</br>
+			Inną metodą skalowania jest ustawienie jednej z góry zaprogramowanych wielkości nawiasów.</br></br>
+			<img  src="image/3090e86b4823800eff693a901402e62e.png"    /></br></br>
+			Kolejno od zewnątrz:
+			</br></br>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">
+			\Biggl( \Biggr)</br>
+			\biggl( \biggr)</br>
+			\Bigl( \Bigr)</br>
+			\bigl( \bigr)</br>
+			()</font>
+			</div>
+			
+			<h2 id="male">2.10 Małe litery alfabetu greckiego</h2>
+		
+		<center> <img  src="image/ca313fa1ff717912c378824059fedc03.png"   /></center>
+		
+		<h2 id="wielkie">2.11 Wielkie litery alfabetu greckiego</h2>
+		
+		<center> <img  src="image/cb5651d7ad99d83ef97a4b0d373de329.png"   /></center>
+		
+		<h2 id="odstepy">2.12 Odstępy i kompozycja</h2>
+		
+		<li>W celu umieszczenia spacji, bądź większego odstępu, zaleca się stosowanie poniższych kodów:</li>
+		<br />
+		<img   src="image/d92cf3062fbf8ce8a20bec05c14e89c3.png" align="top"   />
+		<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]Ala \ ma \ kota[/tex]</font>
+			</div>
+			
+			<br />
+		<li>Znak spacji uzyskujemy za pomocą:</li>
+		<br />
+
+		<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex] \ [/tex]</font>
+			</div>
+			</ul>
+			<br />
+		<li>W celu wprowadzenia całych zdań lub pojedynczych wyrazów można używać opcji:</li>
+		<br />
+		
+		<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\hbox{}[/tex]</font>
+			</div>
+			<br/>
+			<img   src="image/377d4edd9564fe3b59536bf4f561280d.png" align="top"   />
+			<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]|x|=x \hbox{ dla } x\geqslant 0[/tex]</font>
+			</div>
+			<br/>
+			Inne rodzaje odstępów:
+			<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\quad[/tex]</font>
+			</div>
+			<br/>
+			Przed zastosowaniem:
+			<br/><br/>
+			<img   src="image/75fbdfa57457a457c5a1ac73672cf7f1.png" align="top"   />
+			<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\forall x\in R x^2\geqslant 0[/tex]</font>
+				</div>
+			<br/>
+			Po zastosowaniu:<br/><br/>
+			<img   src="image/9cf5140a6ace5b4af95e6d98a6bcc8dc.png" align="top"   />
+			<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\forall x\in R\quad x^2\geqslant 0[/tex]</font>
+			</div>
+			<br/>
+			Większy odstęp można uzyskać stosując:<br/>
+			
+			<br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\qquad[/tex]</font>
+				</div>
+				<br/>
+				Jeżeli chcemy przejść do następnego wiersza, należy zastosować komendę:
+				<br/><br/>
+				<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\\[/tex]</font>
+				</div>
+				<br/>
+				Przykład:<br/><br/>
+				<img   src="image/1e69a3186730a8abed72733098fed3fd.png" align="top"   />
+			<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]wiersz1\\wiersz2[/tex]</font>
+			</div>
+			
+			<h2 id="czcionki">2.13 Czcionki</h2>
+			
+			
+			<img   src="image/cf67248bbe52aade3ba59e41685dc1fd.png" align="top"   />
+			<br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\mathbb{ABC}[/tex]</font>
+				</div>
+				<br/>
+				<img   src="image/b05db33323837bace213f378f866472c.png" align="top"   />
+			<br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex][tex]\mathcal{ABC}[/tex]</font>
+				</div>
+				<br/>
+				<img   src="image/9347cdf535bb08612a4d171f78f58d7d.png" align="top"   />
+			<br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\mathfrak{ABC}[/tex]</font>
+				</div>
+				<br/>
+				<img   src="image/9f745afc9411c32ef877f9756e267ce9.png" align="top"   />
+			<br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\mathrm{ABC}[/tex]</font>
+				</div>
+				<br/>
+			<img   src="image/43882cbab4ab345ca51038b5a277cfc3.png" align="top"   />
+			<br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\textbf{ABC}[/tex]</font>
+				</div>
+			
+			<!-- ######################## Rozdział 3 ######################## -->
+			
+			
+			<center><h1>3. Komendy - część II</h1></center>
+			
+			<h2 id="granice">3.1 Granice</h2>
+			
+			
+			<img   src="image/eb28ee10b426c3a1f5ff07e0683cc5bf.png"   />
+			<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\lim_{x\to\infty} f(x)[/tex]</font>
+				</div>
+				<br/>
+				<img   src="image/e565bcd37f29c08d56e7d57003eeca40.png"   />
+			<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\lim_{n\to\infty} \left(1+\frac{1}{n}\right)^{n}=e[/tex]</font>
+				</div>
+				
+				<h2 id="newton">3.2 Symbol Newtona</h2>
+			
+			
+			<img   src="image/fc351636c8e6359a39fc513b05ff86a8.png"   />
+			<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]{n\choose k}[/tex]</font>
+				</div>
+				<br/>
+			Drugi sposób:
+			<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\binom{n}{k}[/tex]</font>
+				</div>
+				
+				<h2 id="sumy">3.3 Sumy, iloczyny</h2>
+			
+			<li>Suma</li>
+			<img   src="image/0080bf6bb2baac7e90f042271342350a.png"   />
+			<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\sum_{n=1}^{k} n[/tex]</font>
+				</div>
+				<br/>
+				<img   src="image/7aea4aeb9e87c407d99c035cf86f714f.png"   />
+			<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">\sum_{\substack{i > 1 \\ j > i}}</font>
+				</div>
+				<br/>
+			<li>Iloczyn</li>
+			<img   src="image/00c05ac047c4be2b037bdd8353ec7f12.png"   />
+			<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\prod_{n=0}^{k} n=0[/tex]</font>
+				</div>
+				<br/>
+			<li>Suma mnogościowa</li>
+		
+				<img   src="image/12637d4563dbedefa64ae364ea26bf7f.png"   />
+			<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\bigcup_{s=1}^{n} A_s =A_{1}\cup A_{2}\cup \ldots \cup A_{n}[/tex]</font>
+				</div>
+				<br/>
+				<li>Iloczyn mnogościowy</li>
+		
+				<img   src="image/1089a509724d2a48fa6b5015d500ec3d.png"   />
+			<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex][tex]\bigcap_{s=1}^{n} A_s[/tex]</font>
+				</div>
+				<br/>
+			<li>Aby uzyskać same te symbole należy wpisać odpowiednio:</li>
+			<br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\sum[/tex],[tex]\prod[/tex],[tex]\bigcup[/tex],[tex]\bigcap[/tex]</font>
+				</div>
+			
+			
+			<h2 id="dzielenie">3.4 Dzielenie pisemne wielomianów</h2>
+			
+			<img   src="image/b0f1dc1d484b36958a05d9a8a086505c.png"   />
+			<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\begin{array}{lll}<br/>
+				(x^4 - 3x^3 + 3x^2 -4x + 3) & : & (x-1)  =  x^3 - 2x^2 + x -3 \\<br/>
+				\underline{-x^4 + x^3} & &  \\<br/>
+				\qquad -2x^3 + 3x^2 -4x +3 & & \\<br/>
+				\qquad \ \ \underline{2x^3 - 2x^2} & &\\<br/>
+				\qquad \qquad \qquad x^2 - 4x + 3 & & \\<br/>
+				\qquad \qquad \quad \underline{-x^2 + x}  & & \\<br/>
+				\qquad \qquad \qquad \qquad -3x + 3 & & \\<br/>
+				\qquad \qquad \qquad \qquad \ \ \underline{3x - 3} & & \\<br/>
+				\qquad \qquad \qquad \qquad \quad R = 0 & &<br/>
+				\end{array}[/tex]</font>
+				</div>
+				<br/>
+				
+				<h2 id="calki">3.5 Całki</h2>
+			
+			<img   src="image/9820ca40cae6a74d755357717c131e26.png"   />
+			<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\int[/tex]</font>
+				</div>
+				<br/>
+				<img   src="image/a9a136b46cfa6a5aca8dd7edd2faf372.png"   />
+			<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\int\limits_{0}^{1}[/tex]</font>
+				</div>
+				<br/>
+				Lub inaczej:
+				<br/><br/>
+				<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\int_{0}^{1}[/tex]</font>
+				</div>
+				<br/>
+				<img   src="image/57056c38dc4097941a28b42a63fa799a.png"   />
+			<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\iint[/tex]</font>
+				</div>
+				<img   src="image/b7f8a20d545f953dcf4c1f8d6c1dde95.png"   />
+			<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\iint_{D}[/tex]</font>
+				</div>
+				<br/>
+				<img   src="image/88c5aba96d649225c2ce4b143d150113.png"   />
+			<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">
+				[tex]\int\limits_{0}^{1}\int\limits_{2}^{4} (x+y) dx dy[/tex]</font>
+				</div>
+				<br/>
+				<img   src="image/2a423b44bfe97c7c45459b829f077a08.png"   />
+			<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\iiint[/tex]</font>
+				</div>
+				<br/>
+				<img   src="image/0a42430afd276378cfebb9e84fd04f16.png"   />
+			<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\oint[/tex]</font>
+				</div>
+				<br/>
+				Podstawienie:
+				<br/>
+				<img   src="image/83a4257c31da6f6504860320b8057e5d.png"   />
+				<br/><br/>
+				<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">\ldots \stackrel{ \substack{t = x^2 \\ dt = 2x\,dx} }{=}  \ldots</font>
+				</div>
+				
+				
+				
+				<h2 id="wektory">3.6 Wektory, linie oraz inne symbole nad/pod wyrażeniami</h2>
+			
+			W celu uzyskania strzałki nad zmienną stosujemy polecenie:
+			<br/><br/>
+		
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\vec{}[/tex]</font>
+				</div>
+				<br/>
+				Przykład:
+				<br/><br/>
+				<img   src="image/8fd082536a0a420385519d1473c9d27e.png" align="top"   />
+			<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\vec{a}[/tex]</font>
+				</div>
+				<br/>
+				Inną metodą jest zastosowanie polecenia:
+				<br/>
+			<br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">\overrightarrow{}</font>
+				</div>
+				<br/>
+				Przykład:<br/><br/>
+				<img   src="image/5d353f3a6dfb0dc08acee2ce559dc593.png" align="top"   /><br/>
+			<br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\overrightarrow{abc}[/tex]</font>
+				</div>
+				<br/>
+				Jeżeli chcemy uzyskać kreskę pod lub nad wyrażeniem, wystarczy odpowiednio zastosować:
+				<br/>
+			<br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\underline[/tex]</font>
+				</div>
+				<br/>
+				lub
+				<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\overline[/tex]</font>
+				</div>
+				<br/>
+				Przykłady:
+				<br/><br/>
+				<img   src="image/230e452e88a3476543b8b8d48b3857ca.png" align="top"   />
+			<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\underline{abc}[/tex]</font>
+				</div>
+				<br/>
+				<img   src="image/bc3f348d1934d6e6a1a268e778a50411.png" align="top"   />
+			<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\overline{cde}[/tex]</font>
+				</div>
+				<br/><br/>
+				Również można stosować nawiasy klamrowe pod\nad wyrażeniem:
+				<img   src="image/905afd5292ae19fb46043ad9569cf50e.png" align="top"   />
+			<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]n\cdot a=\underbrace{a+a+\ldots+a}_{n}[/tex]</font>
+				</div>
+				<br/>
+				<img   src="image/7582ea0681f4d71e7777d16b8bdd65fa.png" align="top"   />
+			<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]a^{m}=\overbrace{a\cdot a\cdot \ldots a}^{m}[/tex]</font>
+				</div>
+				<br/>
+				<img   src="image/2d3f65754cd9ba61346db80109210410.png" align="top"   />
+			<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\overline{\overline{\Omega}}[/tex]</font>
+				</div>
+				<br/>
+				Inne przydatne symbole:
+				<br/><br/>
+				<center><img   src="image/73c9acab2fdaea7600fe9d0c5173c6b7.png"   /></center>
+			<br/>
+				W celu umieszczenia wyrażenia nad innym wyrażeniem stosujemy polecenie:
+				<br/><br/>
+				<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\stackrel{[H]}{=}[/tex]</font>
+				</div>
+				<br/>
+				Do wstawienia wyrażenia poniżej innego służy komenda:
+				<br/><br/>
+				<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\mathop{}_{}[/tex]</font>
+				</div>
+				<br/>
+				Przykład:
+				<br/>
+				Zaznaczenie przejścia do granicy ciągu:
+				<br/><br/>
+				<img   src="image/6f5be2be9aefd60268183287ca09821b.png" align="top"   />
+				<br/><br/>
+				<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\frac{1}{n+1} \mathop{\longrightarrow}_{n \to \infty} 0[/tex]</font>
+				</div>
+				<br/>
+				
+				Inne użyteczne zapisy:
+				<br/><br/>
+				<img   src="image/a5e92ac0e67d1d2e21702896161b841e.png" align="top"   />
+				<br/><br/>
+				<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\frac{1}{n+1} \mathop{\longrightarrow}_{n \to \infty} 0[/tex]</font>
+				</div>
+				<br/>
+				<img   src="image/96e7b626a6d2c397ea074e59ca98404a.png" align="top"   />
+				<br/><br/>
+				<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\sum_{\substack{1\leq k\leq M\\r\left(k\right)>N}}u_{r\left(k\right)}}[/tex][/hide]</font>
+				</div>
+				
+				
+				
+				<h2 id="macierze">3.7 Macierze, wyznaczniki</h2>
+			
+			<img   src="image/db4d916863fdd2a2cfa30c56fb246e6f.png"   />
+			<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\left[\begin{array}{ccc}1&2&3\\4&5&6\\7&8&9\end{array}\right][/tex]</font>
+				</div>
+				<br/>
+				Polecenie \\ powoduje przejście do nowego wiersza macierzy, zaś {ccc} oznacza centrowanie wyrażeń w kolumnach macierzy, dostępne też jest wyrównanie do lewej {lll} lub wyrównanie do prawej {rrr}. Tyle ile kolumn posiada macierz należy tyle razy wpisać odpowiednią literkę w nawiasach klamrowych, czyli macierz o pięciu kolumnach wymaga wyrażenia {ccccc} itd.
+				<br/><br/>
+				Możemy też zastosować krótszy zapis:
+				<br/><br/>
+				<img   src="image/160831a9c215bd8661c5d4a538b28adb.png"   />
+			<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\begin{bmatrix} 1&2&3\\4&5&6\\7&8&9\end{bmatrix}[/tex]</font></div>
+				<br/>
+				Otrzymamy:
+				<br/><br/>
+				<img   src="image/cf2cb9a5b8ad4ffd44e664f482e09506.png"   />
+			<br/><br/>
+			Wpisując:
+			<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\left|\begin{array}{ccc}1&2&3\\4&5&6\\7&8&9\end{array}\right|[/tex]</font></div>
+				<br/>
+				Lub też:
+				<br/><br/>
+				<img   src="image/e1ab012df3022bacf01fa1bb3d57c3ca.png"   />
+			<br/><br/>
+		
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\begin{vmatrix} 1&2&3\\4&5&6\\7&8&9\end{vmatrix}[/tex]</font></div>
+				
+				
+				
+				<h2 id="uklady">3.8 Układy równań</h2>
+			
+			<img   src="image/8cd8b0f0f84f3761c419dd4d990cccf6.png"   />
+			<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\begin{cases} ax+b=0\\cx^2+d=10\end{cases}[/tex]</font>
+				</div>
+				<br/>
+				Gdy istnieje potrzeba podania np. przedziałów lub innego tekstu, warto skorzystać z opcji tekstu oraz wyrównania (znak "&" wyrównuje tekst do jednego miejsca):
+				<br/><br/>
+				<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\begin{cases} ax+b=0 &\text{dla } x \ge 0\\0 &\text{dla } x<0 \end{cases}[/tex]</font>
+				</div>
+				<br/>
+				Otrzymujemy:
+				<br/><br/>
+				<img   src="image/7f2484f2109a214f93657e40ef4332e9.png"   />
+			<br/><br/>
+			Istnieje alternatywny sposób zapisu układu równań:
+			<br/><br/>
+				<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\left\{\begin{array}{l} 12x+3y+2z=0\\x+y-z=0\\7x+z=1 \end{array}[/tex]</font></div>
+				<br/>
+				<img   src="image/0f09e9b1172e09ad14a2d111a6f5be2c.png"   />
+				
+				
+				<h2 id="tabele">3.9 Tabele</h2>
+			
+			Przykładowa tabela<br/><br/>
+			<img   src="image/dc64e98c1f755b8828ebd64dd7e02eda.png"   />
+			<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\begin{tabular}{ccc}<br/>
+				1 & 2 & 3 \\<br/>
+				4 & 5 & 6 \\<br/>
+				7 & 8 & 9 \\<br/>
+				\end{tabular}[/tex]</font>
+				</div>
+				<br/>
+				Do opisu tabeli, tj. z ilu kolumn ma się składać służy opcja {ccc} - trzy kolumny wyrównane do środka. Każda literka opisuje osobną kolumnę. Inne opcje to:
+				<br/>
+				<li><b>l</b> - wyrównanie do lewej</li>
+				<li><b>c</b> - wyrównanie do środka</li>
+				<li><b>r</b> - wyrównanie do prawej</li>
+				<li><b>|</b> - pionowa linia oddzielająca sąsiednie kolumny</li>
+				Poziome linie odgradzające wiersze wstawiamy za pomocą \hline.
+				Poniżej kilka prostych przykładów:
+				<br/><br/>
+				<img   src="image/1c1f93e947196701806e51cf52293e29.png"   />
+			<br/><br/>
+				<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\begin{tabular}{rcl}<br/>
+				a & b & c \\<br/>
+				aa & bb & cc \\<br/>
+				aaa & bb & ccc \\<br/>
+				\end{tabular}[/tex]</font></div>
+				<br/><br/>
+				<img   src="image/79e544e7b6e0bf8a886fbce1e550823a.png"   />
+			<br/><br/>
+				<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\begin{tabular}{|rc|c} <br/>
+				\hline<br/>
+				1 & 2 & 3 \\<br/>
+				4 & 5 & 6 \\ \hline<br/>
+				7 & 8 & 9 \\ \hline<br/>
+				\end{tabular}[/tex]</font></div>
+				<br/>
+				W tabeli można też łączyć odpowiednie komórki. Oto odpowiednie przykłady:<br/><br/>
+				<img   src="image/8ef698c67fc5a9a9edeb546f1ec6c4b1.png"   />
+			<br/><br/>
+				<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\begin{tabular}{|c|c|c|c|c|c|}\hline<br/> 
+				{Kol. 1} & \multicolumn{2}{|c|}{Kol. 2} & {Kol. 3} &\multicolumn{2}{|c|}{Kol. 4}\\ <br/>
+				\cline{2-3}\cline{5-6} <br/>
+				& 2a & 2b & & 4a & 4b\\  \hline <br/>
+				A & B& C & D & E & F \\ <br/>
+				G & H & I & J & K & L \\  \hline <br/>
+				\end{tabular}[/tex]</font></div>
+				<br/>
+				i tabelka dla księgowych:<br/><br/>
+				<img   src="image/7f3e77d65f2597c02d64bed510341b20.png"   />
+			<br/><br/>
+				<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">[tex]\begin{tabular}{c|c}<br/>
+				\multicolumn{2}{c}{Nazwa konta (000)} \\<br/>
+				\hline<br/>
+				Wn & Ma  \\<br/>
+				Db & Ct  \\ <br/>
+				\hline<br/>
+				Sum 1 & Sum 2 \\<br/>
+				Slado 1 & Saldo 2 \\<br/>
+				\end{tabular}[/tex]</font></div>
+				
+				
+				
+				<h2 id="kolory">3.10 Kolory</h2>
+			
+			Zdefiniowane są następujące nazwy kolorów:<br/><br/>
+			<img   src="image/9576c82b00b27c439b6ad97acbfebb9b.png"   />
+			<br/><br/>
+			Sposób użycia to: <font size="2" color="green" face="Verdana">{\kolor ... }</font>, przykład:<br/><br/>
+			<img   src="image/6e31b237e7eb774bb57c57a4a781c305.png"   />
+			<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">f(x) = \sin x, \; {\blue {\rm dla} \; x} > 0</font>
+				</div>
+				<br/>
+				Dodatkowo istnieje możliwość zdefiniowania nowych kolorów. Można to zrobić podając:
+				<li>wartości RGB, gdzie składowe wartości kolorów zmieniają się od 0 do 1. Służy do tego polecenie <font size="2" color="green" face="Verdana">\newrgbcolor{color}{num1 num2 num3}</font>. Przykład:<br/><br/>
+				<img   src="image/08ca220d3638a514a76c3165c9fdf20e.png"   />
+			<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">\newrgbcolor{kolor}{0.3 0.7 0.3}<br/>
+				{\rm\kolor tekst}</font>
+				</div></li><br/>
+				<li>wartości HSB (odcień, nasycenie, jasność), gdzie składowe wartości zmieniają się od 0 do 1. Służy do tego polecenie <font size="2" color="green" face="Verdana">\newhsbcolor{color}{num1 num2 num3}</font>. Przykład:<br/><br/>
+				<img   src="image/a1113eb9fb2a41166590d2e1e7de3c02.png"   />
+			<br/><br/>
+			<div style="width:790px; background-color:#666666;padding:5px;font-weight:700;color:#fff;">
+				<font size="4" color="white">Kod:</font>
+			</div>
+			<div style="width:790px; background-color:#dedede; padding:5px;">
+				<font size="2" color="green" face="Verdana">\newhsbcolor{kolor}{0.87 0.76 0.5}<br/>
+				{\rm\kolor tekst}</font>
+				</div></li>
+				<br/>
+				Tak zdefiniowany kolor można używać w kodzie wewnątrz tagów <font size="2" color="green" face="Verdana">[tex]...[/tex]</font>, gdzie kolor został zdefiniowany. Użycie go wewnątrz innych tagów <font size="2" color="green" face="Verdana">[tex]</font> wymaga ponownej deklaracji koloru.
+				
+				
+				<h2 id="makra">3.11 Makra</h2>
+			
+			Poza standardowymi komendami <img   src="image/da149f62f27659d988c25966370787b2.png" align="top"  />, dostępne są również makra. Jest to zbiór komend, które ułatwiają wprowadzanie wybranych symboli lub grup symboli. Lista dostępnych makr znajduje się poniżej:<br/><br/>
+			<center><img   src="image/ae6f04d878a4970e09cb6565abe39043.png"   /></center><br/><br/>
+			
+			<div class="slajd">
+		
+			<h1 id="zrodla">Wykorzystane źródła</h1>
+			
+			<ul>
+				<li><a href="http://matematyka.pl" target="_blank" title=	"Strona matematyka.pl" >matematyka.pl</a></li>
+				<li><a href="http://www.latex-kurs.x25.pl/" target="_blank" title=	"Strona latex-kurs" >latex-kurs.pl</a></li>
+			</ul>
+		</div>	
+		
+	</div>
+	
+	<div id="stopka">Autor strony: Damian Bilski</div>
+				
+</body>
